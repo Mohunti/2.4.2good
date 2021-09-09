@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Person</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin}" th:object="${person}">
+    <label for="username"> Enter name: </label>
+    <input type="text" th:field="*{username}" id="username"/>
+    <div style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name error</div>
+    <br/>
+    <label for="username"> Enter surName: </label>
+    <input type="text" th:field="*{surName}" id="email"/>
+    <div style="color:red" th:if="${#fields.hasErrors('surName')}" th:errors="*{surName}">surName error</div>
+    <br/>
+    <label for="age"> Enter age: </label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
+    <br/>
+
+    <label for="password"> Enter password: </label>
+    <input type="text" th:field="*{password}" id="password"/>
+    <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name error</div>
+    <br/>
+    <input type="submit" value="Create!"/>
+    <br/>
+    <input type="checkbox"  th:id="1" name="ADMIN" value="ADMIN">ADMIN</p>
+    <input type="checkbox"  th:id="2"  name="USER" value="USER">USER</p>
+    <br/>
+
+
+</form>
+
+</body>
+</html>
