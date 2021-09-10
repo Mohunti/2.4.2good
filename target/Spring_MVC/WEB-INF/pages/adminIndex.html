@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Users</title>
+</head>
+<body>
+<table border="2">
+  <tr>
+    <th>id</th>
+    <th>Name</th>
+    <th>surName</th>
+    <th>Age</th>
+
+    
+  </tr>
+
+  <tr th:each="flower: ${people}">
+    <td th:utext="${flower.getId()}">id</td>
+    <td th:utext="${flower.getUsername()}">Username</td>
+    <td th:utext="${flower.getSurName()}">email</td>
+    <td th:utext="${flower.getAge()}">Age</td>
+
+    <td>
+      <form th:method="GET" th:action="@{/admin/{id}/edit(id=${flower.getId()})}">
+        <input TYPE="submit" VALUE="Edit">
+      </form>
+      <form th:method="DELETE" th:action="@{/admin/{id}(id=${flower.getId()})}">
+        <input type="submit" value="Delete"/>
+      </form>
+    </td>
+
+  </tr>
+
+</table>
+
+<br/>
+<hr/>
+<a href="/admin/new">Create new person</a>
+<br/>
+<a href="/logout">logout</a>
+<br/>
+
+
+</body>
+</html>
